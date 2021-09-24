@@ -6,12 +6,9 @@
 
 ## General Info
 This browser based web application to ...
-<<<<<<< HEAD
 Hello, I am Leo.
 	
-=======
  * Danilo's input 
->>>>>>> e5b614607586d6683757dbd6c52ed72f5506cdf3
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
