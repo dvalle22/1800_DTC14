@@ -1,26 +1,45 @@
 ## My Web Application (Title)
 
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Contents](#content)
+-  [General info](#general-info)
+-  [Technologies](#technologies)
+-  [Contents](#content)
 
 ## General Info
+
 This browser based web application to ...
+<<<<<<< HEAD
 Hello, I am Leo.
 	
  * Danilo's input 
-## Technologies
-Technologies used for this project:
-* HTML, CSS
-* JavaScript
-* Bootstrap 
-* ...
+=======
+<<<<<<< HEAD
+Hello -Melanie.
+
+Hello, I am Leo.
+
+-  Danilo's input
+
+=======
+Hello, I am Leo.
 	
+ * Danilo's input 
+>>>>>>> 129c27d60dba01b071c8f56b7691055dda92d84e
+>>>>>>> 9acdba1d6009b43125d701069f221ebfc0a54541
+## Technologies
+
+Technologies used for this project:
+
+-  HTML, CSS
+-  JavaScript
+-  Bootstrap
+-  ...
+
 ## Content
+
 Content of the project folder:
 
 ```
- Top level of project folder: 
+ Top level of project folder:
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
 └── README.md
@@ -28,19 +47,19 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /blah.jpg                # 
+    /blah.jpg                #
 ├── scripts                  # Folder for scripts
-    /blah.js                 # 
+    /blah.js                 #
 ├── styles                   # Folder for styles
-    /blah.css                # 
+    /blah.css                #
 
-Firebase hosting files: 
+Firebase hosting files:
 ├── .firebaserc...
 
 
 ```
 
 Tips for file naming files and folders:
-* use lowercase with no spaces
-* use dashes (not underscore) for word separation
 
+-  use lowercase with no spaces
+-  use dashes (not underscore) for word separation
