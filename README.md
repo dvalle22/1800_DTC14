@@ -9,6 +9,10 @@
 This browser based web application to ...
 Hello -Melanie.
 
+Hello, I am Leo.
+
+-  Danilo's input
+
 ## Technologies
 
 Technologies used for this project:
