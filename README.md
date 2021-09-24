@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+Hello, I am Leo.
 	
 ## Technologies
 Technologies used for this project:
