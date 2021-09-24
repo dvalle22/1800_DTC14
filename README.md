@@ -7,12 +7,18 @@
 ## General Info
 
 This browser based web application to ...
+<<<<<<< HEAD
 Hello -Melanie.
 
 Hello, I am Leo.
 
 -  Danilo's input
 
+=======
+Hello, I am Leo.
+	
+ * Danilo's input 
+>>>>>>> 129c27d60dba01b071c8f56b7691055dda92d84e
 ## Technologies
 
 Technologies used for this project:
