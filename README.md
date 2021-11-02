@@ -6,7 +6,7 @@
 
 ## General Info
 
-UCare helps the elderly catch up with advanced technology by creating a friendly platform for them to read news, search for aid, and train their technical skills.
+UCare helps the elderly catch up with advanced technology by creating a friendly platform for them to read news, search for aid, and train their technical skills. \
 This browser based web application is a product of Melanie Ta, Danilo Valle, and Chengyang Li.
 
 ## Technologies
@@ -16,7 +16,7 @@ Technologies used for this project:
 -  HTML, CSS
 -  JavaScript
 -  Bootstrap
--  ...
+-  W3Schools
 
 ## Content
 
