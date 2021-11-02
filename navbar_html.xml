@@ -1,11 +1,12 @@
 <div class="topnav">
-         <a href="#home" class="active">UCare</a>
+         <a href="main.html" class="active">UCare</a>
          <div id="myLinks">
-            <a href="#News">News</a>
+            <a href="news.html">News</a>
             <a href="#PublicHealth">Public Health</a>
             <a href="#Skills">Skills Centre</a>
             <hr style="color: white; margin-bottom: 0; margin-top: 0" />
             <a href="#Setting">Setting</a>
+            <a href="profile.html">Profile</a>
             <hr style="color: white; margin-bottom: 0; margin-top: 0" />
             <a href="#FAQ">FAQ</a>
             <a href="#ContactUs">Contact Us</a>
