@@ -1,3 +1,19 @@
+document.body.onload = function() {
+   let nav_container = document.createElement("div");
+   nav_container.setAttribute("id", "navbar_container");
+   document.body.appendChild(nav_container);
+   let first_container = document.body.firstChild;
+   document.body.insertBefore(nav_container, first_container);
+
+   let xHR_nav = new XMLHttpRequest();
+   xHR_nav.open('GET', '/navbar_html.xml');
+   xHR_nav.onreadystatechange = function() {
+       nav_container.innerHTML = xHR_nav.responseText;
+   }
+   xHR_nav.send();
+}
+
+
 function sayHello() {
    firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
