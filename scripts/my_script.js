@@ -1,9 +1,12 @@
-document.body.onload = function() {
+/***************************************************/
+/* Add a navbar to the top of the body of
+ every HTML page with this script */
+/**************************************************/
+let navbar_setter = function() {
    let nav_container = document.createElement("div");
    nav_container.setAttribute("id", "navbar_container");
    document.body.appendChild(nav_container);
-   let first_container = document.body.firstChild;
-   document.body.insertBefore(nav_container, first_container);
+   document.body.insertBefore(nav_container, document.body.firstChild);
 
    let xHR_nav = new XMLHttpRequest();
    xHR_nav.open('GET', '/navbar_html.xml');
@@ -12,6 +15,8 @@ document.body.onload = function() {
    }
    xHR_nav.send();
 }
+document.body.onload = navbar_setter;
+/*********************************************/
 
 
 function sayHello() {
