@@ -6,10 +6,8 @@
 
 ## General Info
 
-This browser based web application to ...
-Hello -Melanie.
-Hello, I am Leo.
-Hello. Danilo's input
+UCare helps the elderly catch up with advanced technology by creating a friendly platform for them to read news, search for aid, and train their technical skills.
+This browser based web application is a product of Melanie Ta, Danilo Valle, and Chengyang Li.
 
 ## Technologies
 
@@ -33,11 +31,12 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /blah.jpg                #
+    /Logo.png                # Logo of the product, with transparent background
+    /Logo.psd                # Logo of the product
 ├── scripts                  # Folder for scripts
-    /blah.js                 #
+    /my_script.js            #
 ├── styles                   # Folder for styles
-    /blah.css                #
+    /my_styles.css           #
 
 Firebase hosting files:
 ├── .firebaserc...
