@@ -39,9 +39,12 @@ body,
 p {
    font-size: 20px;
 }
-
 .btn-lg {
    background-color: #6610f2;
    color: white;
    height: 110%;
+}
+.function-icon {
+   width: 20px;
+   margin-right: 5px;
 }
