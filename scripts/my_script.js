@@ -2,34 +2,21 @@
 /* Add a navbar to the top of the body of
  every HTML page with this script */
 /**************************************************/
-let navbar_setter = function() {
+let navbar_setter = function () {
    let nav_container = document.createElement("div");
    nav_container.setAttribute("id", "navbar_container");
    document.body.appendChild(nav_container);
    document.body.insertBefore(nav_container, document.body.firstChild);
 
    let xHR_nav = new XMLHttpRequest();
-   xHR_nav.open('GET', '/navbar_html.xml');
-   xHR_nav.onreadystatechange = function() {
-       nav_container.innerHTML = xHR_nav.responseText;
-   }
+   xHR_nav.open("GET", "/navbar_html.xml");
+   xHR_nav.onreadystatechange = function () {
+      nav_container.innerHTML = xHR_nav.responseText;
+   };
    xHR_nav.send();
-}
+};
 document.body.onload = navbar_setter;
 /*********************************************/
-
-var firebaseConfig = {
-   apiKey: "AIzaSyC-XdlrUduNApNzif0Rmcm9u4xMdnfJziQ",
-   authDomain: "ucare-74097.firebaseapp.com",
-   projectId: "ucare-74097",
-   storageBucket: "ucare-74097.appspot.com",
-   messagingSenderId: "965844702573",
-   appId: "1:965844702573:web:797a872a82ec69d3353664"
- };
-
-
- const app = firebase.initializeApp(firebaseConfig);
-
 function sayHello() {
    firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
