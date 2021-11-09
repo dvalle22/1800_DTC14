@@ -18,6 +18,11 @@ Technologies used for this project:
 -  Bootstrap
 -  W3Schools
 
+Images Source:
+
+-  commons.wikimedia.org
+-  shuttlestock.com
+
 ## Content
 
 Content of the project folder:
@@ -33,6 +38,7 @@ It has the following subfolders and files:
 ├── images                   # Folder for images
     /Logo.png                # Logo of the product, with transparent background
     /Logo.psd                # Logo of the product
+    /skillscentre            # All icons for Skills Centre
 ├── scripts                  # Folder for scripts
     /my_script.js            #
 ├── styles                   # Folder for styles
@@ -41,6 +47,8 @@ It has the following subfolders and files:
 Firebase hosting files:
 ├── .firebaserc...
 
+
+## ImagesSource
 
 ```
 
