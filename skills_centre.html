@@ -5,6 +5,7 @@
       <title>My BCIT Project</title>
       <meta name="comp1800 boilerplate code" content="my bcit project" />
       <meta name="author" content="BCIT" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       <link
          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -18,13 +19,15 @@
       />
       <link rel="stylesheet" href="./styles/my_style.css" />
 
-      <!-- Bootstrap CSS CDN -->  <!---------------------------------------------------------------THIS IS CAUSING STYLING CONFLICT---------------------------------->
+      <!-- Bootstrap CSS CDN -->
+      <!---------------------------------------------------------------THIS IS CAUSING STYLING CONFLICT---------------------------------->
       <!-- <link                 
          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
          rel="stylesheet"
          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
          crossorigin="anonymous"
-      /> -->                      <!-------------------------------------------------------------------------------------------------------------------------------->
+      /> -->
+      <!-------------------------------------------------------------------------------------------------------------------------------->
 
       <!-- Boostrap JS CDN -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -40,49 +43,45 @@
       <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
       <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
 
       <!-- Link to the api keys for your firebase project -->
       <script src="scripts/firebaseAPI.js"></script>
    </head>
 
    <body>
-
-      <div class="container py-3">
-     
-    
-         <main>
-           <h1 style="font-size: 4em; text-align: center;">Skills Centre</h1>
-           <br />
-           <h3 style="font-size: 3em; text-align: center;" >Welcome to the UCare Skills Centre! </h3>
-         </main>
-
+      <div class="container py-3" style="margin: 5vw auto">
+         <h1 style="font-size: 3em; text-align: center">Skills Centre</h1>
+         <br />
+         <h3 style="font-size: 2em; text-align: center">
+            Welcome to UCare's <br />
+            Skills Centre!
+         </h3>
       </div>
 
-      
-      <br />
-      <div class="d-grid mx-auto" style="width: 50%; height: 4em; margin-top: 100px">
-         <a href="news.html">
-            <input
-               class="btn btn-lg"
-               type="button"
-               value="New Lesson"
-               style="width: 100%; height: 100%;"
-
-            />
-         </a>
+      <div style="display: block; text-align: center; margin: 5vw auto">
+         <div class="d-grid mx-auto">
+            <a href="skills_centre_categories.html">
+               <input
+                  class="btn btn-lg"
+                  type="button"
+                  style="width: 70%"
+                  value="New Lesson"
+               />
+            </a>
+         </div>
+         <br />
+         <div class="d-grid mx-auto">
+            <a href="#">
+               <input
+                  class="btn btn-lg"
+                  type="button"
+                  style="width: 70%"
+                  value="Saved Lessons"
+               />
+            </a>
+         </div>
       </div>
-      <br />
-      <div class="d-grid mx-auto" style="width: 50%; height: 4em; margin-top: 100px">
-         <a href="#">
-            <input
-               class="btn btn-lg"
-               type="button"
-               value="Saved Lessons"
-               style="width: 100%"
-            />
-         </a>
-      </div>
-      <br />
 
       <script src="./scripts/my_script.js"></script>
    </body>
