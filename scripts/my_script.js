@@ -16,29 +16,38 @@ let navbar_setter = function () {
    xHR_nav.send();
 };
 document.body.onload = navbar_setter;
-/*********************************************/
-// function sayHello() {
-//    firebase.auth().onAuthStateChanged(function (user) {
-//       if (user) {
-//          // User is signed in.
-//          // Do something for the user here.
-//          console.log(user.uid);
-//          db.collection("users")
-//             .doc(user.uid)
-//             .get()
-//             .then(function (doc) {
-//                var n = doc.data().name;
-//                console.log(n);
-//                //$("#username").text(n);
-//                document.getElementById("username").innerText = n;
-//             });
-//       } else {
-//          // No user is signed in.
-//       }
-//    });
-// }
-//sayHello();
 
+/*********************************************/
+/* When the Save button is clicked, send article's
+information to FireStore. */
+/*********************************************/
+function saveNews(newsID) {
+   var currentUser = db.collection("users").doc("test_user");
+   var currentArticle = db.collection("articles").doc(newsID);
+
+   currentArticle
+      .get()
+      .then((doc) => {
+         if (doc.exists) {
+            console.log("Document data:", doc.data());
+            let newsTitle = doc.data().title;
+            let newsUrl = doc.data().url;
+
+            currentUser.collection("saved_news").doc(newsID).set({
+               title: newsTitle,
+               url: newsUrl,
+            });
+         } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+         }
+      })
+      .catch((error) => {
+         console.log("Error getting document:", error);
+      });
+}
+
+/*********************************************/
 function writeWebcamData() {
    //this is an array of JSON objects copied from open source data
    var webcams = [

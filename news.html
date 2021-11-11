@@ -58,6 +58,7 @@
          }
          .recentNews .ct-blog {
             margin-bottom: 30px;
+            display: block;
          }
          .ct-blog .inner {
             background-color: #fff;
@@ -70,7 +71,7 @@
             background-color: #e6e6e6;
          }
          .ct-blog .fauxcrop {
-            height: 180px;
+            height: 150px;
             overflow: hidden;
          }
          .ct-blog .fauxcrop img {
@@ -84,7 +85,7 @@
             border-right: 1px solid #95a5a6;
             display: table-cell;
             font-family: "Lato", sans-serif;
-            padding: 0px 18px 0px 15px;
+            padding: 10px;
             text-align: center;
          }
          .ct-blog-content .ct-blog-date span {
@@ -105,7 +106,7 @@
             font-weight: 700;
             letter-spacing: -0.2px;
             line-height: 1.1;
-            padding: 0 20px;
+            padding: 10px;
             vertical-align: top;
          }
          .btn-news {
@@ -114,6 +115,9 @@
             font-weight: bold;
             padding-bottom: 30px;
             text-align: center;
+         }
+         .btn {
+            float: right;
          }
          .btn-news.btn-contests a {
             color: #fff;
@@ -133,7 +137,9 @@
             <h2 class="news-title">UCare News</h2>
             <div class="row">
                <div class="ct-blog col-sm-6 col-md-4">
-                  <div class="inner">
+                  <div class="inner" onclick="saveNews('0001')">
+                     <button type="button" class="btn btn-primary">Save</button>
+
                      <div>
                         <a href="sample-article.html">
                            <h1>Top Stories</h1>
@@ -154,14 +160,19 @@
                            Man stabs multiple passengers, sets fire in Tokyo
                            train
                         </h3>
-                        <button type="button" class="btn btn-primary">
-                           Save
-                        </button>
                      </div>
                   </div>
                </div>
                <div class="ct-blog col-sm-6 col-md-4">
                   <div class="inner">
+                     <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="saveNews('0002')"
+                     >
+                        Save
+                     </button>
+
                      <div>
                         <a href="sample-article.html">
                            <h1>COVID-19</h1>
@@ -181,15 +192,20 @@
                         <h3 class="ct-blog-header">
                            Canada's COVID-19 vaccine guidance
                         </h3>
-                        <button type="button" class="btn btn-primary">
-                           Save
-                        </button>
                      </div>
                   </div>
                </div>
 
                <div class="ct-blog col-sm-6 col-md-4">
                   <div class="inner">
+                     <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="saveNews('0003')"
+                     >
+                        Save
+                     </button>
+
                      <div>
                         <a href="#">
                            <h1>Politics</h1>
@@ -209,15 +225,19 @@
                         <h3 class="ct-blog-header">
                            Trudeau says climate progress made at G20
                         </h3>
-                        <button type="button" class="btn btn-primary">
-                           Save
-                        </button>
                      </div>
                   </div>
                </div>
 
                <div class="ct-blog col-sm-6 col-md-4">
                   <div class="inner">
+                     <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="saveNews('0004')"
+                     >
+                        Save
+                     </button>
                      <div>
                         <a href="#">
                            <h1>Health</h1>
@@ -235,16 +255,21 @@
                            <span>October</span><strong>25</strong>
                         </div>
                         <h3 class="ct-blog-header">
-                           Eniors 70 and older, front-line health workers
+                           Seniors 70 and older can be offered boosters, NACI
+                           says
                         </h3>
-                        <button type="button" class="btn btn-primary">
-                           Save
-                        </button>
                      </div>
                   </div>
                </div>
                <div class="ct-blog col-sm-6 col-md-4">
                   <div class="inner">
+                     <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="saveNews('0005')"
+                     >
+                        Save
+                     </button>
                      <div>
                         <a href="#">
                            <h1>Local</h1>
@@ -262,17 +287,21 @@
                            <span>November</span><strong>1</strong>
                         </div>
                         <h3 class="ct-blog-header">
-                           Help CBC find the spookiest neighbourhood this
+                           Help CBC find the spookiest neighbour-hood this
                            Halloween
                         </h3>
-                        <button type="button" class="btn btn-primary">
-                           Save
-                        </button>
                      </div>
                   </div>
                </div>
                <div class="ct-blog col-sm-6 col-md-4">
                   <div class="inner">
+                     <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="saveNews('0006')"
+                     >
+                        Save
+                     </button>
                      <div>
                         <a href="#">
                            <h1>World</h1>
@@ -293,9 +322,6 @@
                            A sampling of highest and lowest-paid workers on N.B.
                            picket lines
                         </h3>
-                        <button type="button" class="btn btn-primary">
-                           Save
-                        </button>
                      </div>
                   </div>
                </div>
