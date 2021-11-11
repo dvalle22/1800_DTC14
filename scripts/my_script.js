@@ -18,11 +18,21 @@ let navbar_setter = function () {
 document.body.onload = navbar_setter;
 
 /*********************************************/
+/* Declare global variable currentUser */
+/*********************************************/
+var currentUser;
+
+firebase.auth().onAuthStateChanged((user) => {
+   if (user) {
+      currentUser = db.collection("users").doc(user.uid);
+   }
+});
+
+/*********************************************/
 /* When the Save button is clicked, send article's
 information to FireStore. */
 /*********************************************/
 function saveNews(newsID) {
-   var currentUser = db.collection("users").doc("test_user");
    var currentArticle = db.collection("articles").doc(newsID);
 
    currentArticle
@@ -45,6 +55,19 @@ function saveNews(newsID) {
       .catch((error) => {
          console.log("Error getting document:", error);
       });
+}
+
+/*********************************************/
+/* Toggle between showing and hiding the navigation menu links
+when the user clicks on the hamburger menu / bar icon */
+/*********************************************/
+function myFunction() {
+   var x = document.getElementById("myLinks");
+   if (x.style.display === "block") {
+      x.style.display = "none";
+   } else {
+      x.style.display = "block";
+   }
 }
 
 /*********************************************/
@@ -151,14 +174,4 @@ function writeWebcamData() {
             console.log("wrote to webcams collection " + doc.id);
          });
    });
-}
-
-/* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
-function myFunction() {
-   var x = document.getElementById("myLinks");
-   if (x.style.display === "block") {
-      x.style.display = "none";
-   } else {
-      x.style.display = "block";
-   }
 }
