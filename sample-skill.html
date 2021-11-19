@@ -19,7 +19,6 @@
       <link rel="stylesheet" href="./styles/my_style.css" />
 
       <!-- Bootstrap CSS CDN -->
-    
 
       <!-- Boostrap JS CDN -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -39,100 +38,128 @@
       <!-- Link to the api keys for your Firebase project -->
       <script src="scripts/firebaseAPI.js"></script>
       <style>
-        main {
+         main {
             margin: 5%;
-        }
-       
-        .mock_image_thing {
+         }
+
+         .mock_image_thing {
             height: auto;
-        }
-        h1 {
+         }
+         h1 {
             margin: auto;
             display: block;
-            width:fit-content;
+            width: fit-content;
             margin-bottom: 5%;
             margin-top: 2%;
             font-size: 3em;
-        }
-        img {
+         }
+         img {
             display: block;
             width: 90%;
             margin: auto;
             margin-top: 10%;
-        }
-        p {
+         }
+         p {
             font-size: 4em;
             margin: 10%;
-        }
-        
+         }
       </style>
    </head>
 
    <body>
-    <h1>Sample Skill</h1>
-    <div class="d-grid mx-auto" style="width: 20%; height: 3em; margin-top: 20px">
-        <a href="#">
-           <input
-              class="btn btn-lg"
-              type="button"
-              value="Save Lesson"
-              style="width: 100%;"
-
-           />
-        </a>
-     </div>
-       <main>
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-interval="false">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  
+      <button id="back-button" onclick="goBack()">Back</button>
+      <h1>Sample Skill</h1>
+      <div
+         class="d-grid mx-auto"
+         style="width: 20%; height: 3em; margin-top: 20px"
+      >
+         <a href="#">
+            <input
+               class="btn btn-lg"
+               type="button"
+               value="Save Lesson"
+               style="width: 100%"
+            />
+         </a>
+      </div>
+      <main>
+         <div
+            id="carouselExampleCaptions"
+            class="carousel slide"
+            data-bs-interval="false"
+         >
+            <div class="carousel-indicators">
+               <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+               ></button>
+               <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+               ></button>
+            </div>
+            <div class="carousel-inner">
+               <div
+                  class="carousel-item active"
+                  style="background-color: rgb(43, 114, 119)"
+               >
+                  <div class="mock_image_thing">
+                     <img
+                        alt="thumbnail"
+                        src="./images/skillscentre/video_player.jpg"
+                     />
+                     <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Ut venenatis tristique orci, et vehicula enim imperdiet
+                        et. Vestibulum ut euismod lectus, sit amet cursus dui.
+                     </p>
                   </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active" style="background-color: rgb(43, 114, 119);">
-                    <div class="mock_image_thing">
-                        <img alt="thumbnail" src="./images/skillscentre/video_player.jpg"/>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                            venenatis tristique orci, et vehicula enim imperdiet et. Vestibulum
-                            ut euismod lectus, sit amet cursus dui. 
-                         </p>
-                    </div>
+               </div>
+               <div
+                  class="carousel-item"
+                  style="background-color: rgb(43, 114, 119)"
+               >
+                  <div class="mock_image_thing">
+                     <p>
+                        Vivamus faucibus mauris posuere lectus bibendum
+                        bibendum. Phasellus massa mi, sollicitudin in neque id,
+                        pharetra molestie ex. Donec ut imperdiet nisl.
+                        Pellentesque nisl erat, consequat sed felis in, suscipit
+                        aliquam nisi. Aenean non urna arcu. Curabitur ex velit,
+                        congue in est et, ultricies vehicula magna.
+                     </p>
                   </div>
-                  <div class="carousel-item"  style="background-color: rgb(43, 114, 119);">
-                    <div class="mock_image_thing">
-                        <p>
-                            Vivamus faucibus mauris
-                            posuere lectus bibendum bibendum. Phasellus massa mi, sollicitudin
-                            in neque id, pharetra molestie ex. Donec ut imperdiet nisl.
-                            Pellentesque nisl erat, consequat sed felis in, suscipit aliquam
-                            nisi. Aenean non urna arcu. Curabitur ex velit, congue in est et,
-                            ultricies vehicula magna. 
-                        </p>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" style="padding-top: 100%;">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next" style="padding-top: 100%;">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-                
-              
+               </div>
+            </div>
+         </div>
+         <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+            style="padding-top: 100%"
+         >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+         </button>
+         <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+            style="padding-top: 100%"
+         >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+         </button>
+      </main>
 
-          </main>
-
-    
-
-
-       <script src="./scripts/my_script.js"></script>
+      <script src="./scripts/my_script.js"></script>
    </body>
 </html>
-
-
-
-

@@ -25,6 +25,8 @@ var currentUser;
 firebase.auth().onAuthStateChanged((user) => {
    if (user) {
       currentUser = db.collection("users").doc(user.uid);
+      console.log("A user is logged in.");
+      window.onbeforeunload = writeURL();
    }
 });
 
@@ -49,6 +51,77 @@ function saveNews(newsID) {
             });
          } else {
             // doc.data() will be undefined in this case
+            console.log("No such document!");
+         }
+      })
+      .catch((error) => {
+         console.log("Error getting document:", error);
+      });
+}
+
+/*********************************************/
+/* Each time user visits a new page, add that page URL
+to user navigate collection */
+/*********************************************/
+function writeURL() {
+   var oldURL = document.referrer;
+
+   currentUser.get().then((doc) => {
+      if (doc.exists) {
+         console.log("Document data:", doc.data());
+
+         let vistedURLs = doc.data().visited;
+
+         if (vistedURLs.length > 5) {
+            currentUser.update({
+               visited: firebase.firestore.FieldValue.arrayRemove(
+                  vistedURLs[0]
+               ),
+            });
+         }
+      }
+   });
+
+   currentUser
+      .update({
+         visited: firebase.firestore.FieldValue.arrayUnion(oldURL),
+      })
+      .then(() => {
+         console.log("URL successfully written!");
+      })
+      .catch((error) => {
+         console.error("Error writing URL: ", error);
+      });
+}
+
+/*********************************************/
+/* When the Back button is clicked, navigate to the
+previous page that user visits */
+/*********************************************/
+function goBack() {
+   window.location.href = document.referrer;
+   currentUser
+      .get()
+      .then((doc) => {
+         if (doc.exists) {
+            console.log("Document data:", doc.data());
+
+            let vistedURLs = doc.data().visited;
+            let last = vistedURLs.get(vistedURLs.length - 1);
+
+            window.location.href = last;
+
+            currentUser
+               .update({
+                  visited: firebase.firestore.FieldValue.arrayRemove(last),
+               })
+               .then(() => {
+                  console.log("URL successfully removed!");
+               })
+               .catch((error) => {
+                  console.error("Error removing URL: ", error);
+               });
+         } else {
             console.log("No such document!");
          }
       })
