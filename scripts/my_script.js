@@ -102,14 +102,15 @@ function goBack() {
       .get()
       .then((doc) => {
          if (doc.exists) {
-            console.log("Return to ", doc.data());
-
             let vistedURLs = doc.data().visited;
-            let last = vistedURLs[vistedURLs.length - 2];
+            let minimum_page = 2
+            if (vistedURLs.length >= minimum_page) {
+               console.log("Return to ", doc.data());
 
-            window.location.href = last;
+               let last = vistedURLs[vistedURLs.length - 2];
+               window.location.href = last;
 
-            currentUser
+               currentUser
                .update({
                   visited: firebase.firestore.FieldValue.arrayRemove(vistedURLs[vistedURLs.length - 1]),
                })
@@ -119,6 +120,10 @@ function goBack() {
                .catch((error) => {
                   console.error("Error removing URL: ", error);
                });
+            }
+            else
+               alert("No page to go back to.")
+            
          } else {
             console.log("No such document!");
          }
