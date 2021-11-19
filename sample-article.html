@@ -175,7 +175,7 @@
 
       <!-- Article content -->
       <section id="content">
-         <h1>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</h1>
+         <h1 id="title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</h1>
          <p class="detail">by <b>Lorem Ispum</b></p>
          <p class="detail">8:33 a.m. - October 30, 2021</p>
          <p class="summary">
@@ -217,6 +217,20 @@
 
       <!-- JavaScript goes here -->
       <script>
+         //Populate news to the template
+         let news = db.collection("articles").doc("0002"); 
+         
+         news.get().then((doc) => {
+            if (doc.exists) {
+               console.log("Document data:", doc.data());
+               document.getElementById("title").innerHTML = doc.data().title;
+            }
+            else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            }
+         })       
+           
          // Get the modal
          var modal = document.getElementById("options");
 
