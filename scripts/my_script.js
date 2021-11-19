@@ -64,11 +64,9 @@ function saveNews(newsID) {
 to user navigate collection */
 /*********************************************/
 function writeURL() {
-   var oldURL = document.referrer;
-
    currentUser
       .update({
-         visited: firebase.firestore.FieldValue.arrayUnion(oldURL),
+         visited: firebase.firestore.FieldValue.arrayUnion(window.location.href),
       })
       .then(() => {
          console.log("URL successfully written!");
@@ -104,16 +102,16 @@ function goBack() {
       .get()
       .then((doc) => {
          if (doc.exists) {
-            console.log("Document data:", doc.data());
+            console.log("Return to ", doc.data());
 
             let vistedURLs = doc.data().visited;
-            let last = vistedURLs.get(vistedURLs.length - 1);
+            let last = vistedURLs[vistedURLs.length - 2];
 
             window.location.href = last;
 
             currentUser
                .update({
-                  visited: firebase.firestore.FieldValue.arrayRemove(last),
+                  visited: firebase.firestore.FieldValue.arrayRemove(vistedURLs[vistedURLs.length - 1]),
                })
                .then(() => {
                   console.log("URL successfully removed!");
