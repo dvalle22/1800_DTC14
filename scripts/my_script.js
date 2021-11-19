@@ -66,6 +66,18 @@ to user navigate collection */
 function writeURL() {
    var oldURL = document.referrer;
 
+   currentUser
+      .update({
+         visited: firebase.firestore.FieldValue.arrayUnion(oldURL),
+      })
+      .then(() => {
+         console.log("URL successfully written!");
+      })
+      .catch((error) => {
+         console.error("Error writing URL: ", error);
+      });
+
+   //Only allows 5 URLs to be saved
    currentUser.get().then((doc) => {
       if (doc.exists) {
          console.log("Document data:", doc.data());
@@ -81,17 +93,6 @@ function writeURL() {
          }
       }
    });
-
-   currentUser
-      .update({
-         visited: firebase.firestore.FieldValue.arrayUnion(oldURL),
-      })
-      .then(() => {
-         console.log("URL successfully written!");
-      })
-      .catch((error) => {
-         console.error("Error writing URL: ", error);
-      });
 }
 
 /*********************************************/
@@ -99,7 +100,6 @@ function writeURL() {
 previous page that user visits */
 /*********************************************/
 function goBack() {
-   window.location.href = document.referrer;
    currentUser
       .get()
       .then((doc) => {
