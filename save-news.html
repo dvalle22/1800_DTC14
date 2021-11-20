@@ -66,6 +66,21 @@
       </div>
       <script src="./scripts/my_script.js"></script>
       <script>
+         // function read_title() {
+         //    db.collection("articles")
+         //       .doc("test_article") //name of the collection and documents should matach excatly with what you have in Firestore
+         //       .onSnapshot((test_article) => {
+         //          //arrow notation
+         //          // console.log("current document data: " + TuesdayDoc.data());                          //.data() returns data object
+         //          document.getElementById("content-goes-here").innerHTML =
+         //             test_article.data().title;
+         //          document.getElementById("url-goes-here").innerHTML =
+         //             test_article.data().url; //using javascript to display the data on the right place
+         //          //$('#quote-goes-here').text(c.data().quote);                                       //using jquery object dot notation
+         //          //$("#quote-goes-here").text(c.data()["quote"]);                                     //using json object indexing
+         //       });
+         // }
+         // read_title();
          function read_title() {
             db.collection("articles")
                .doc("test_article") //name of the collection and documents should matach excatly with what you have in Firestore
