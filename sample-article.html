@@ -124,25 +124,23 @@
 
    <body>
       <!-- Function buttons -->
-      <div>
-         <div class="functionality">
-            <button onclick="goBack()">Back</button>
-            <button id="audio-choice">
-               <img
-                  class="function-icon"
-                  alt="Audio choices"
-                  src="./images/audio-choice.png"
-               />
-               Audio
-            </button>
-            <button id="save-news" onclick="saveNews('test_article')">
-               <img
-                  class="function-icon"
-                  alt="Save news"
-                  src="./images/save.png"
-               />Save
-            </button>
-         </div>
+      <div class="functionality">
+         <button onclick="goBack()">Back</button>
+         <button id="audio-choice">
+            <img
+               class="function-icon"
+               alt="Audio choices"
+               src="./images/audio-choice.png"
+            />
+            Audio
+         </button>
+         <button id="save-news" onclick="saveNews('test_article')">
+            <img
+               class="function-icon"
+               alt="Save news"
+               src="./images/save.png"
+            />Save
+         </button>
       </div>
 
       <!-- Popup windows -->
@@ -156,6 +154,7 @@
                      type="button"
                      value="Read whole article"
                      style="width: 100%; font-size: 90%"
+                     onclick="readAll()"
                   />
                </a>
             </div>
@@ -167,6 +166,7 @@
                      type="button"
                      value="Read paragraphs"
                      style="width: 100%; font-size: 90%"
+                     onclick="readChoices()"
                   />
                </a>
             </div>
@@ -175,7 +175,9 @@
 
       <!-- Article content -->
       <section id="content">
-         <h1 id="title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</h1>
+         <h1 id="title">
+            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet
+         </h1>
          <p class="detail">by <b>Lorem Ispum</b></p>
          <p class="detail">8:33 a.m. - October 30, 2021</p>
          <p class="summary">
@@ -186,9 +188,9 @@
          </p>
          <figure>
             <img alt="thumbnail" src="https://dummyimage.com/600x400/000/fff" />
-            <figcaption class="detail">Fig.1 - Lorem ipsum.</figcaption>
+            <figcaption class="detail">Figure 1. Lorem ipsum.</figcaption>
          </figure>
-         <p>
+         <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
             venenatis tristique orci, et vehicula enim imperdiet et. Vestibulum
             ut euismod lectus, sit amet cursus dui. Vivamus faucibus mauris
@@ -201,9 +203,9 @@
             massa in tincidunt. Ut congue, massa quis euismod bibendum, eros dui
             iaculis libero, sit amet varius est enim ut erat. Aliquam erat
             volutpat. Fusce semper nec lorem mollis varius.
-         </p>
+         </div>
 
-         <p>
+         <div>
             Aliquam vitae faucibus elit. Curabitur leo eros, aliquam eu
             venenatis ac, imperdiet ac urna. Phasellus posuere aliquam turpis a
             tempus. Maecenas et dignissim orci. Ut aliquet nunc sed venenatis
@@ -212,25 +214,24 @@
             imperdiet, libero felis pulvinar leo, et varius est tortor et quam.
             Suspendisse potenti. Nunc orci ex, venenatis in urna ac, scelerisque
             vulputate odio.
-         </p>
+         </div>
       </section>
 
       <!-- JavaScript goes here -->
       <script>
          //Populate news to the template
-         let news = db.collection("articles").doc("0002"); 
-         
+         let news = db.collection("articles").doc("0002");
+
          news.get().then((doc) => {
             if (doc.exists) {
                console.log("Document data:", doc.data());
                document.getElementById("title").innerHTML = doc.data().title;
+            } else {
+               // doc.data() will be undefined in this case
+               console.log("No such document!");
             }
-            else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-            }
-         })       
-           
+         });
+
          // Get the modal
          var modal = document.getElementById("options");
 
@@ -256,6 +257,39 @@
                modal.style.display = "none";
             }
          };
+
+         function readAll() {
+            var img = document.createElement("img");
+            var br = document.createElement("br");
+
+            let allDivs = document.getElementById("content");
+            let paragraphs = allDivs.getElementsByTagName("div");
+
+            img.src = "./images/speaking.png";
+            img.style.width = "50px";
+
+            for (i = 0; i < paragraphs.length; i++) {
+               paragraphs[i].prepend(br.cloneNode(true));
+               paragraphs[i].prepend(img.cloneNode(true));
+            }
+         }
+
+         function readChoices() {
+            var img = document.createElement("input");
+            var br = document.createElement("br");
+
+            let allDivs = document.getElementById("content");
+            let paragraphs = allDivs.getElementsByTagName("div");
+
+            img.src = "./images/not-speaking.png";
+            img.type = "image";
+            img.style.width = "50px";
+
+            for (i = 0; i < paragraphs.length; i++) {
+               paragraphs[i].prepend(br.cloneNode(true));
+               paragraphs[i].prepend(img.cloneNode(true));
+            }
+         }
       </script>
       <script src="./scripts/my_script.js"></script>
    </body>
