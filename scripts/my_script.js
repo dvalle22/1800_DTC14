@@ -42,13 +42,8 @@ function saveNews(newsID) {
       .then((doc) => {
          if (doc.exists) {
             console.log("Document data:", doc.data());
-            let newsTitle = doc.data().title;
-            let newsUrl = doc.data().url;
 
-            currentUser.collection("saved_news").doc(newsID).set({
-               title: newsTitle,
-               url: newsUrl,
-            });
+            currentUser.collection("saved_news").doc(newsID).set({});
          } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");

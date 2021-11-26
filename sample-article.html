@@ -54,7 +54,7 @@
             />
             Audio
          </button>
-         <button id="save-news" onclick="saveNews('test_article')">
+         <button id="save-news" onclick="saveNews(localStorage.getItem('newsID'))">
             <img
                class="function-icon"
                alt="Save news"
@@ -96,45 +96,16 @@
       <!-- Article content -->
       <section id="content">
          <h1 id="title">
-            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet
          </h1>
-         <p class="detail">by <b>Lorem Ispum</b></p>
-         <p class="detail">8:33 a.m. - October 30, 2021</p>
-         <p class="summary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            venenatis tristique orci, et vehicula enim imperdiet et. Vestibulum
-            ut euismod lectus, sit amet cursus dui. Vivamus faucibus mauris
-            posuere lectus bibendum bibendum.
+         <p class="detail">by <b id="source"></b></p>
+         <p class="detail" id="time"></p>
+         <p id="summary">
+            
          </p>
          <figure>
-            <img alt="thumbnail" src="https://dummyimage.com/600x400/000/fff" />
-            <figcaption class="detail">Figure 1. Lorem ipsum.</figcaption>
+            <img id="thumbnail" alt="thumbnail" src="https://dummyimage.com/600x400/000/fff" />
+            <figcaption id="caption" class="detail"></figcaption>
          </figure>
-         <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            venenatis tristique orci, et vehicula enim imperdiet et. Vestibulum
-            ut euismod lectus, sit amet cursus dui. Vivamus faucibus mauris
-            posuere lectus bibendum bibendum. Phasellus massa mi, sollicitudin
-            in neque id, pharetra molestie ex. Donec ut imperdiet nisl.
-            Pellentesque nisl erat, consequat sed felis in, suscipit aliquam
-            nisi. Aenean non urna arcu. Curabitur ex velit, congue in est et,
-            ultricies vehicula magna. Phasellus nec magna sem. Vivamus ornare
-            urna eros, a laoreet sapien sodales ut. Donec maximus vestibulum
-            massa in tincidunt. Ut congue, massa quis euismod bibendum, eros dui
-            iaculis libero, sit amet varius est enim ut erat. Aliquam erat
-            volutpat. Fusce semper nec lorem mollis varius.
-         </div>
-
-         <div>
-            Aliquam vitae faucibus elit. Curabitur leo eros, aliquam eu
-            venenatis ac, imperdiet ac urna. Phasellus posuere aliquam turpis a
-            tempus. Maecenas et dignissim orci. Ut aliquet nunc sed venenatis
-            rhoncus. Mauris nibh nibh, porta quis lacinia a, tempus nec dui.
-            Quisque vitae volutpat neque. Duis elementum, ex sit amet viverra
-            imperdiet, libero felis pulvinar leo, et varius est tortor et quam.
-            Suspendisse potenti. Nunc orci ex, venenatis in urna ac, scelerisque
-            vulputate odio.
-         </div>
       </section>
 
       <!-- JavaScript goes here -->

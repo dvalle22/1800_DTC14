@@ -1,16 +1,61 @@
-//Populate news to the template
-let news = db.collection("articles").doc("0002");
+/*********************************************/
+/* Populate news to the template */
+/*********************************************/
+function displayNews() {
+   let newsID = "test_article";
 
-news.get().then((doc) => {
-   if (doc.exists) {
-      console.log("Document data:", doc.data());
-      document.getElementById("title").innerHTML = doc.data().title;
-   } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-   }
-});
+   if (localStorage.getItem("newsID") != null){
+      newsID = localStorage.getItem("newsID");
+  }
 
+   let news = db.collection("articles").doc(newsID);
+   
+   news.get().then((doc) => {
+      if (doc.exists) {
+         document.getElementById("title").innerHTML = doc.data().title;
+         document.getElementById("source").innerHTML = doc.data().source;
+         document.getElementById("time").innerHTML = doc.data().time;
+         document.getElementById("summary").innerHTML = doc.data().summary;
+         document.getElementById("thumbnail").src = doc.data().thumbnail;
+         document.getElementById("caption").innerHTML = doc.data().caption;
+
+         var size = 0;
+         news.collection("content").get()
+         .then(allParagraphs => {
+            size = allParagraphs.size;
+
+            for (let i = 1; i <= size; i++) {
+               let paraID = "p" + i.toString();
+               let paragraph = news.collection("content").where("id", "==", paraID);
+
+               paragraph.get().then((querySnapshot) => {
+                  querySnapshot.forEach((doc) => {
+                     var tag = document.createElement("div");
+                     var text = document.createTextNode(doc.data().text);
+                     tag.appendChild(text);
+
+                     document.getElementById("content").appendChild(tag);
+                  });
+              })
+              .catch((error) => {
+                  console.log("Error getting documents: ", error);
+              });
+          ;
+            }
+         })
+
+         
+      } else {
+         // doc.data() will be undefined in this case
+         console.log("No such document!");
+      }
+   });
+}
+displayNews();
+
+/*********************************************/
+/* JavaScript for pop-up modal */
+/*********************************************/
 // Get the modal
 var modal = document.getElementById("options");
 
@@ -37,6 +82,9 @@ window.onclick = function (event) {
    }
 };
 
+/*********************************************/
+/* Display audio options */
+/*********************************************/
 function readAll() {
    var img = document.createElement("img");
    var br = document.createElement("br");
