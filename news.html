@@ -136,22 +136,21 @@
             <h2 class="news-title">UCare News</h2>
             <div class="row">
                <div class="ct-blog col-sm-6 col-md-4">
-                  <div class="inner" onclick="saveNews('0001')">
-                     <button type="button" class="btn btn-primary">Save</button>
-
+                  <div class="inner">
+                     <button type="button" class="btn btn-primary" onclick="saveNews('0001')">Save</button>
                      <div>
-                        <a href="sample-article.html">
+                        <a>
                            <h1>Top Stories</h1>
                         </a>
                      </div>
-                     <div class="fauxcrop">
+                     <div class="fauxcrop" onclick="sendNewsInfo('0001')">
                         <a href="#"
                            ><img
                               alt="News Entry"
                               src="https://i.cbc.ca/1.6232191.1635704247!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/1236253448.jpg"
                         /></a>
                      </div>
-                     <div class="ct-blog-content">
+                     <div class="ct-blog-content"  onclick="sendNewsInfo('0001')">
                         <div class="ct-blog-date">
                            <span>November</span><strong>1</strong>
                         </div>
@@ -177,14 +176,14 @@
                            <h1>COVID-19</h1>
                         </a>
                      </div>
-                     <div class="fauxcrop">
+                     <div class="fauxcrop" onclick="sendNewsInfo('0002')">
                         <a href="#"
                            ><img
                               alt="News Entry"
                               src="https://i.cbc.ca/1.6231331.1635556370!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/vaccine-stock.jpg"
                         /></a>
                      </div>
-                     <div class="ct-blog-content">
+                     <div class="ct-blog-content" onclick="sendNewsInfo('0002')">
                         <div class="ct-blog-date">
                            <span>October</span><strong>30</strong>
                         </div>
@@ -210,14 +209,14 @@
                            <h1>Politics</h1>
                         </a>
                      </div>
-                     <div class="fauxcrop">
+                     <div class="fauxcrop" onclick="sendNewsInfo('0003')">
                         <a href="#"
                            ><img
                               alt="News Entry"
                               src="https://i.cbc.ca/1.6232092.1635695116!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/trudeau-g20-rome-20211030.jpg"
                         /></a>
                      </div>
-                     <div class="ct-blog-content">
+                     <div class="ct-blog-content" onclick="sendNewsInfo('0003')">
                         <div class="ct-blog-date">
                            <span>October</span><strong>27</strong>
                         </div>
@@ -242,14 +241,14 @@
                            <h1>Health</h1>
                         </a>
                      </div>
-                     <div class="fauxcrop">
+                     <div class="fauxcrop" onclick="sendNewsInfo('0004')">
                         <a href="#"
                            ><img
                               alt="News Entry"
                               src="https://i.cbc.ca/1.6228632.1635463695!/cpImage/httpImage/image.jpg_gen/derivatives/16x9_780/vaccin-grippe-demande-20201105.jpg"
                         /></a>
                      </div>
-                     <div class="ct-blog-content">
+                     <div class="ct-blog-content" onclick="sendNewsInfo('0004')">
                         <div class="ct-blog-date">
                            <span>October</span><strong>25</strong>
                         </div>
@@ -274,14 +273,14 @@
                            <h1>Local</h1>
                         </a>
                      </div>
-                     <div class="fauxcrop">
+                     <div class="fauxcrop" onclick="sendNewsInfo('0005')">
                         <a href="#"
                            ><img
                               alt="News Entry"
                               src="https://i.cbc.ca/1.5344480.1572625991!/cumulusImage/httpImage/image.jpg_gen/derivatives/16x9_780/halloween.jpg"
                         /></a>
                      </div>
-                     <div class="ct-blog-content">
+                     <div class="ct-blog-content" onclick="sendNewsInfo('0005')">
                         <div class="ct-blog-date">
                            <span>November</span><strong>1</strong>
                         </div>
@@ -306,14 +305,14 @@
                            <h1>World</h1>
                         </a>
                      </div>
-                     <div class="fauxcrop">
+                     <div class="fauxcrop" onclick="sendNewsInfo('0006')">
                         <a href="#"
                            ><img
                               alt="News Entry"
                               src="https://i.cbc.ca/1.6230659.1635535137!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/pickets.jpg"
                         /></a>
                      </div>
-                     <div class="ct-blog-content">
+                     <div class="ct-blog-content" onclick="sendNewsInfo('0006')">
                         <div class="ct-blog-date">
                            <span>February</span><strong>20</strong>
                         </div>
@@ -333,5 +332,6 @@
       </section>
 
       <script src="./scripts/my_script.js"></script>
+      <script src="./scripts/news.js"></script>
    </body>
 </html>
