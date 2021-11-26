@@ -124,6 +124,7 @@
                class="btn btn-primary"
                type="button"
                onclick="saveUserSettings()"
+               id="settings_save_button"
             >
                Save
             </button>
@@ -185,6 +186,10 @@
                .then(() => {
                   console.log("Document successfully updated!");
                });
+
+            let button_html_unsaved = 'Save';
+            let button_html_saved = 'SAVED &#10003';
+            document.getElementById("settings_save_button").innerHTML = button_html_saved;
          }
       </script>
    </body>
