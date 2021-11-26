@@ -65,16 +65,6 @@
 
     <div class="card" style="border: 18rem;">
       <div class="card-body">
-        <h5 class="card-title"><span id="content-goes-here" style="font-style: italic;"></span></h5>
-        <span id="url-goes-here" style="font-size: 0.2cm;"></span>
-        <br>
-        <a href="#">More Details</a>
-      </div>
-    </div>
-    <br>
-
-    <div class="card" style="border: 18rem;">
-      <div class="card-body">
         <h5 class="card-title"><span id="title2" style="font-style: italic;"></span></h5>
         <span id="url2" style="font-size: 0.2cm;"></span>
         <br>
@@ -121,6 +111,9 @@
         <a href="#">More Details</a>
       </div>
     </div>
+    <br>
+
+
 
 
 
@@ -131,16 +124,6 @@
 
             if (user) {
 
-               currentUser = db.collection("users").doc(user.uid).collection("saved_news").doc("test_article");
-
-               currentUser.get()
-                  .then(saved_newsDoc => {
-                     var Title = saved_newsDoc.data().title;
-                     var url = saved_newsDoc.data().url;
-                     console.log(Title);
-                     $("#content-goes-here").text(Title);
-                     $("#url-goes-here").text(url);
-                  })
 
                currentUser = db.collection("users").doc(user.uid).collection("saved_news").doc("0001");
 

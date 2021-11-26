@@ -36,14 +36,17 @@ information to FireStore. */
 /*********************************************/
 function saveNews(newsID) {
    var currentArticle = db.collection("articles").doc(newsID);
-
    currentArticle
       .get()
       .then((doc) => {
          if (doc.exists) {
             console.log("Document data:", doc.data());
-
-            currentUser.collection("saved_news").doc(newsID).set({});
+            let newsTitle = doc.data().title;
+            let newsUrl = doc.data().url;
+            currentUser.collection("saved_news").doc(newsID).set({
+               title: newsTitle,
+               url: newsUrl,
+            });
          } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
