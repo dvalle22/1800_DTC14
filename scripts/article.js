@@ -4,12 +4,12 @@
 function displayNews() {
    let newsID = "test_article";
 
-   if (localStorage.getItem("newsID") != null){
+   if (localStorage.getItem("newsID") != null) {
       newsID = localStorage.getItem("newsID");
-  }
+   }
 
    let news = db.collection("articles").doc(newsID);
-   
+
    news.get().then((doc) => {
       if (doc.exists) {
          document.getElementById("title").innerHTML = doc.data().title;
@@ -20,31 +20,34 @@ function displayNews() {
          document.getElementById("caption").innerHTML = doc.data().caption;
 
          var size = 0;
-         news.collection("content").get()
-         .then(allParagraphs => {
-            size = allParagraphs.size;
+         news
+            .collection("content")
+            .get()
+            .then((allParagraphs) => {
+               size = allParagraphs.size;
 
-            for (let i = 1; i <= size; i++) {
-               let paraID = "p" + i.toString();
-               let paragraph = news.collection("content").where("id", "==", paraID);
+               for (let i = 1; i <= size; i++) {
+                  let paraID = "p" + i.toString();
+                  let paragraph = news
+                     .collection("content")
+                     .where("id", "==", paraID);
 
-               paragraph.get().then((querySnapshot) => {
-                  querySnapshot.forEach((doc) => {
-                     var tag = document.createElement("div");
-                     var text = document.createTextNode(doc.data().text);
-                     tag.appendChild(text);
+                  paragraph
+                     .get()
+                     .then((querySnapshot) => {
+                        querySnapshot.forEach((doc) => {
+                           var tag = document.createElement("div");
+                           var text = document.createTextNode(doc.data().text);
+                           tag.appendChild(text);
 
-                     document.getElementById("content").appendChild(tag);
-                  });
-              })
-              .catch((error) => {
-                  console.log("Error getting documents: ", error);
-              });
-          ;
-            }
-         })
-
-         
+                           document.getElementById("content").appendChild(tag);
+                        });
+                     })
+                     .catch((error) => {
+                        console.log("Error getting documents: ", error);
+                     });
+               }
+            });
       } else {
          // doc.data() will be undefined in this case
          console.log("No such document!");

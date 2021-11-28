@@ -64,7 +64,9 @@ to user navigate collection */
 function writeURL() {
    currentUser
       .update({
-         visited: firebase.firestore.FieldValue.arrayUnion(window.location.href),
+         visited: firebase.firestore.FieldValue.arrayUnion(
+            window.location.href
+         ),
       })
       .then(() => {
          console.log("URL successfully written!");
@@ -96,12 +98,12 @@ function writeURL() {
 previous page that user visits */
 /*********************************************/
 function goBack() {
-   currentUser
+   currentUser_1
       .get()
       .then((doc) => {
          if (doc.exists) {
             let vistedURLs = doc.data().visited;
-            let minimum_page = 2
+            let minimum_page = 2;
             if (vistedURLs.length >= minimum_page) {
                console.log("Return to ", doc.data());
 
@@ -109,19 +111,18 @@ function goBack() {
                window.location.href = last;
 
                currentUser
-               .update({
-                  visited: firebase.firestore.FieldValue.arrayRemove(vistedURLs[vistedURLs.length - 1]),
-               })
-               .then(() => {
-                  console.log("URL successfully removed!");
-               })
-               .catch((error) => {
-                  console.error("Error removing URL: ", error);
-               });
-            }
-            else
-               alert("No page to go back to.")
-
+                  .update({
+                     visited: firebase.firestore.FieldValue.arrayRemove(
+                        vistedURLs[vistedURLs.length - 1]
+                     ),
+                  })
+                  .then(() => {
+                     console.log("URL successfully removed!");
+                  })
+                  .catch((error) => {
+                     console.error("Error removing URL: ", error);
+                  });
+            } else alert("No page to go back to.");
          } else {
             console.log("No such document!");
          }
@@ -144,80 +145,87 @@ function myFunction() {
    }
 }
 
-
 function insertTitle() {
-   firebase.auth().onAuthStateChanged(user => {
-
+   firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+         currentUser_1 = db
+            .collection("users")
+            .doc(user.uid)
+            .collection("saved_news")
+            .doc("0001");
 
+         currentUser_1.get().then((saved_newsDoc) => {
+            var Title = saved_newsDoc.data().title;
+            var url = saved_newsDoc.data().url;
+            console.log(Title);
+            $("#title1").text(Title);
+            $("#url1").text(url);
+         });
+         currentUser_1 = db
+            .collection("users")
+            .doc(user.uid)
+            .collection("saved_news")
+            .doc("0002");
 
-         currentUser = db.collection("users").doc(user.uid).collection("saved_news").doc("0001");
+         currentUser_1.get().then((saved_newsDoc) => {
+            var Title = saved_newsDoc.data().title;
+            var url = saved_newsDoc.data().url;
+            $("#title2").text(Title);
+            $("#url2").text(url);
+         });
+         currentUser_1 = db
+            .collection("users")
+            .doc(user.uid)
+            .collection("saved_news")
+            .doc("0003");
 
-         currentUser.get()
-            .then(saved_newsDoc => {
-               var Title = saved_newsDoc.data().title;
-               var url = saved_newsDoc.data().url;
-               console.log(Title);
-               $("#title1").text(Title);
-               $("#url1").text(url);
-            })
-            currentUser = db.collection("users").doc(user.uid).collection("saved_news").doc("0002");
+         currentUser_1.get().then((saved_newsDoc) => {
+            var Title = saved_newsDoc.data().title;
+            var url = saved_newsDoc.data().url;
 
-         currentUser.get()
-            .then(saved_newsDoc => {
-               var Title = saved_newsDoc.data().title;
-               var url = saved_newsDoc.data().url;
-               console.log(Title);
-               $("#title2").text(Title);
-               $("#url2").text(url);
-            })
-            currentUser = db.collection("users").doc(user.uid).collection("saved_news").doc("0003");
+            $("#title3").text(Title);
+            $("#url3").text(url);
+         });
+         currentUser_1 = db
+            .collection("users")
+            .doc(user.uid)
+            .collection("saved_news")
+            .doc("0004");
 
-         currentUser.get()
-            .then(saved_newsDoc => {
-               var Title = saved_newsDoc.data().title;
-               var url = saved_newsDoc.data().url;
-               console.log(Title);
-               $("#title3").text(Title);
-               $("#url3").text(url);
-            })
-            currentUser = db.collection("users").doc(user.uid).collection("saved_news").doc("0004");
+         currentUser_1.get().then((saved_newsDoc) => {
+            var Title = saved_newsDoc.data().title;
+            var url = saved_newsDoc.data().url;
+            console.log(Title);
+            $("#title4").text(Title);
+            $("#url4").text(url);
+         });
+         currentUser_1 = db
+            .collection("users")
+            .doc(user.uid)
+            .collection("saved_news")
+            .doc("0005");
 
-         currentUser.get()
-            .then(saved_newsDoc => {
-               var Title = saved_newsDoc.data().title;
-               var url = saved_newsDoc.data().url;
-               console.log(Title);
-               $("#title4").text(Title);
-               $("#url4").text(url);
-            })
-            currentUser = db.collection("users").doc(user.uid).collection("saved_news").doc("0005");
+         currentUser_1.get().then((saved_newsDoc) => {
+            var Title = saved_newsDoc.data().title;
+            var url = saved_newsDoc.data().url;
+            $("#title5").text(Title);
+            $("#url5").text(url);
+         });
+         currentUser_1 = db
+            .collection("users")
+            .doc(user.uid)
+            .collection("saved_news")
+            .doc("0006");
 
-         currentUser.get()
-            .then(saved_newsDoc => {
-               var Title = saved_newsDoc.data().title;
-               var url = saved_newsDoc.data().url;
-               console.log(Title);
-               $("#title5").text(Title);
-               $("#url5").text(url);
-            })
-            currentUser = db.collection("users").doc(user.uid).collection("saved_news").doc("0006");
-
-         currentUser.get()
-            .then(saved_newsDoc => {
-               var Title = saved_newsDoc.data().title;
-               var url = saved_newsDoc.data().url;
-               console.log(Title);
-               $("#title6").text(Title);
-               $("#url6").text(url);
-            })
-
+         currentUser_1.get().then((saved_newsDoc) => {
+            var Title = saved_newsDoc.data().title;
+            var url = saved_newsDoc.data().url;
+            $("#title6").text(Title);
+            $("#url6").text(url);
+         });
       } else {
          // No user is signed in.
       }
    });
 }
 insertTitle();
-
-
-

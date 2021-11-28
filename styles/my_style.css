@@ -38,6 +38,7 @@
 body,
 p {
    font-size: 20px;
+   background-color: rgb(230, 235, 255);
 }
 .logo {
    height: 18vh;
