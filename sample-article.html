@@ -20,7 +20,6 @@
       <link rel="stylesheet" href="./styles/my_style.css" />
       <link rel="stylesheet" href="./styles/article.css" />
 
-
       <!-- Boostrap JS CDN -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script
@@ -42,7 +41,6 @@
 
       <!--Google jQuery CDN-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      
    </head>
 
    <body>
@@ -57,7 +55,10 @@
             />
             Audio
          </button>
-         <button id="save-news" onclick="saveNews(localStorage.getItem('newsID'))">
+         <button
+            id="save-news"
+            onclick="saveNews(localStorage.getItem('newsID'))"
+         >
             <img
                class="function-icon"
                alt="Save news"
@@ -98,54 +99,22 @@
 
       <!-- Article content -->
       <section id="content">
-         <h1 id="title">
-         </h1>
+         <h1 id="title"></h1>
          <p class="detail">by <b id="source"></b></p>
          <p class="detail" id="time"></p>
-         <p id="summary">
-            
-         </p>
+         <p id="summary"></p>
          <figure>
-            <img id="thumbnail" alt="thumbnail" src="https://dummyimage.com/600x400/000/fff" />
+            <img
+               id="thumbnail"
+               alt="thumbnail"
+               src="https://dummyimage.com/600x400/000/fff"
+            />
             <figcaption id="caption" class="detail"></figcaption>
          </figure>
       </section>
 
       <!-- JavaScript goes here -->
-      <script src="./scripts/article.js">
-      </script>
+      <script src="./scripts/article.js"></script>
       <script src="./scripts/my_script.js"></script>
-      <script>
-
-         changeFontSize = function () {
-            firebase.auth().onAuthStateChanged((user) => {
-               // Check if user is signed in:
-               if (user) {
-                  // go to the correct user document by referencing to the user uid
-                  currentUser = db.collection("users").doc(user.uid);
-                  //get the document for current user
-                  currentUser.get().then((userDoc) => {
-                     //get the settings data of the user
-                     var userFontOption = userDoc.data().fontoption;
-                     if (userFontOption != null) {
-                        if (userFontOption == 'default') {
-                           $('#content').css({'font-size': '100%'})
-                        }else if (userFontOption == 'large') {
-                           $('#content').css({'font-size': '140%'})
-                        }else if (userFontOption == 'larger') {
-                           $('#content').css({'font-size': '180%'})                          
-                        }else if (userFontOption == 'largest') {
-                           $('#content').css({'font-size': '220%'})                           
-                        }
-                     }
-                  });
-               } else {
-                  // No user is signed in.
-                  console.log("No user is signed in");
-               }
-            });
-         }
-         jQuery(document).ready(changeFontSize);
-      </script>
    </body>
 </html>

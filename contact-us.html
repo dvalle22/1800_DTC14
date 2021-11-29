@@ -18,6 +18,7 @@
          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       />
       <link rel="stylesheet" href="./styles/my_style.css" />
+      <link rel="stylesheet" href="./styles/contact-us.css" />
 
       <!-- Boostrap JS CDN -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -36,104 +37,6 @@
       <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
       <!-- Link to the api keys for your Firebase project -->
       <script src="scripts/firebaseAPI.js"></script>
-      <style>
-         body {
-            background-color: #f2f7fb;
-         }
-
-         .login-block {
-            margin: 30px auto;
-            min-height: 93.6vh;
-         }
-
-         .login-block .auth-box {
-            margin: 20px auto 0;
-            max-width: 569px !important;
-         }
-
-         .contact-us {
-            font-size: 24px;
-            font-weight: 300;
-         }
-
-         .respond {
-            font-size: 15px !important;
-            font-weight: 200;
-            margin-top: -6px;
-         }
-
-         .card {
-            border-radius: 5px;
-            -webkit-box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1),
-               0 11px 6px -7px rgba(43, 43, 43, 0.1);
-            box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1),
-               0 11px 6px -7px rgba(43, 43, 43, 0.1);
-            border: none;
-            margin-bottom: 30px;
-            -webkit-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-         }
-
-         .card .card-block {
-            padding: 1.25rem;
-         }
-
-         .f-56 {
-            font-size: 56px;
-         }
-
-         .form-group {
-            margin-bottom: 1.25em;
-         }
-
-         .form-material .form-control {
-            display: inline-block;
-            height: 43px;
-            width: 100%;
-            border: none;
-            border-radius: 0;
-            font-size: 16px;
-            font-weight: 400;
-            padding: 0;
-            background-color: transparent;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-            border-bottom: 1px solid #ccc;
-         }
-
-         .btn-md {
-            padding: 10px 16px;
-            font-size: 15px;
-            line-height: 23px;
-         }
-
-         .btn-primary {
-            background-color: #6610f2;
-            border-color: #6610f2;
-            color: #fff;
-            cursor: pointer;
-            -webkit-transition: all ease-in 0.3s;
-            transition: all ease-in 0.3s;
-         }
-
-         .btn {
-            border-radius: 2px;
-            text-transform: capitalize;
-            font-size: 15px;
-            padding: 10px 19px;
-            cursor: pointer;
-         }
-
-         .m-b-20 {
-            margin-bottom: 20px;
-         }
-
-         .btn-md {
-            padding: 10px 16px;
-            font-size: 15px;
-            line-height: 23px;
-         }
-      </style>
    </head>
 
    <body>
@@ -226,34 +129,8 @@
             </div>
          </div>
       </section>
+
       <script src="./scripts/my_script.js"></script>
-      
-      <script>
-         function submit_enquiry() {
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let message = document.getElementById("message").value;
-
-            firebase.auth().onAuthStateChanged(user => {
-               if (user) {
-                  var currentUser = db.collection("users").doc(user.uid);
-                  var userID = user.uid;
-
-                  currentUser.get().then(userDoc => {
-                     db.collection("enquiries").add({
-                        UserID: userID,
-                        Name: name,
-                        Email: email,
-                        Message: message
-                     })
-                  })
-               } else {
-                  console.log("No user is signed in.");
-               }
-            });
-
-            
-         }
-      </script>
+      <script src="./scripts/contact-us.js"></script>
    </body>
 </html>

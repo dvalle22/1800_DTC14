@@ -9,7 +9,7 @@ let navbar_setter = function () {
    document.body.insertBefore(nav_container, document.body.firstChild);
 
    let xHR_nav = new XMLHttpRequest();
-   xHR_nav.open("GET", "./navbar_html.xml");
+   xHR_nav.open("GET", "./navbar-html.xml");
    xHR_nav.onreadystatechange = function () {
       nav_container.innerHTML = xHR_nav.responseText;
    };
@@ -98,7 +98,7 @@ function writeURL() {
 previous page that user visits */
 /*********************************************/
 function goBack() {
-   currentUser_1
+   currentUser
       .get()
       .then((doc) => {
          if (doc.exists) {

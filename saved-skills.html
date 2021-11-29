@@ -17,6 +17,7 @@
          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       />
       <link rel="stylesheet" href="./styles/my_style.css" />
+      <link rel="stylesheet" href="./styles/skill.css" />
 
       <!-- Bootstrap CSS CDN -->
 
@@ -40,69 +41,20 @@
 
       <!--Google jQuery CDN-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-      <style>
-          h1 {
-              text-align: center;
-              font-size: 2em;
-              margin: 0.5em;
-          }
-          #saved_skills_container {
-              font-size: 1em;
-              width: 80%;
-              margin: auto;
-          }
-          #saved_skills_container h4 {
-              font-size: 1.5em;
-          }
-          #saved_skills_container > div {
-              background-color: rgb(240, 238, 218);
-              padding: 5%;
-              margin: 5%;
-          }
-      </style>
    </head>
 
    <body>
-       <button id="back-button" onclick="goBack()">Back</button>
-       <h1>Saved Lessons</h1>
-       <div id="main_container">
-           <div id="CardTemplate">
-               <h4 class="card-title"></h4>
-               <a class="card-href" href="#"></a>
-           </div>
-           <div id="saved_skills_container">
+      <button id="back-button" onclick="goBack()">Back</button>
+      <h1>Saved Lessons</h1>
+      <div id="main_container">
+         <div id="CardTemplate">
+            <h4 class="card-title"></h4>
+            <a class="card-href" href="#"></a>
+         </div>
+         <div id="saved_skills_container"></div>
+      </div>
 
-           </div>
-       </div>
-
-       <script src="./scripts/my_script.js"></script>
-       <script>
-           function displayCards(collection) {
-               firebase.auth().onAuthStateChanged((user) => {
-                   if (user) {
-                       let CardTemplate = document.getElementById("CardTemplate");
-                       db.collection("users/" + user.uid + "/" + collection)
-                           .get().then(snap => {
-                               var i = 1;
-                               snap.forEach(doc => { //iterate thru each doc
-                                   var title = doc.data().name;
-                                   console.log(title);
-                                   var theURL = doc.data().url;
-                                   let newcard = CardTemplate.cloneNode(true);
-
-                                   newcard.querySelector('.card-title').innerHTML = title;
-                                   newcard.querySelector('.card-href').innerHTML = 'Go to skill';
-                                   newcard.querySelector('.card-href').href = "./" + theURL;
-
-                                   document.getElementById('saved_skills_container').appendChild(
-                                       newcard);
-                               })
-                           })
-                   }
-               })
-           }
-           displayCards('saved_skills');
-       </script>
+      <script src="./scripts/my_script.js"></script>
+      <script src="./scripts/saved-skill.js"></script>
    </body>
 </html>

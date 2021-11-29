@@ -35,8 +35,7 @@
 }
 
 /*Style the general layout*/
-body,
-p {
+body {
    font-size: 20px;
    background-color: rgb(230, 235, 255);
 }
