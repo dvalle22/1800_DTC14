@@ -1,0 +1,14 @@
+h1 {
+   margin: 5vh auto;
+}
+
+.card-header {
+   background-color: #10009c;
+   color: white;
+   padding: 20px;
+   font-weight: bold;
+}
+
+.card-body {
+   padding: 20px;
+}
