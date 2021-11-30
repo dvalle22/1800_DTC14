@@ -2,10 +2,10 @@
          <a href="main.html" class="active">UCare</a>
          <div id="myLinks">
             <a href="news.html">News</a>
-            <a href="save-news.html">Saved News</a>
+            <a href="saved-news.html">Saved News</a>
             <a href="skills-centre.html">Skills Centre</a>
             <hr style="color: white; margin-bottom: 0; margin-top: 0" />
-            <a href="./settings.html">Settings</a>
+            <a href="settings.html">Settings</a>
             <a href="profile.html">Profile</a>
             <hr style="color: white; margin-bottom: 0; margin-top: 0" />
             <a href="faq.html">FAQ</a>

@@ -15,6 +15,7 @@
    margin-bottom: 30px;
    display: block;
 }
+
 .ct-blog .inner {
    background-color: #fff;
    padding: 10px;
@@ -23,7 +24,7 @@
    height: 100%;
 }
 .ct-blog .inner:hover {
-   background-color: #5c5c5c;
+   background-color: #d4d4d4;
 }
 .ct-blog .fauxcrop {
    height: 150px;
@@ -44,14 +45,14 @@
 }
 .ct-blog-content .ct-blog-date span {
    font-size: 16px;
-   color: rgb(20, 117, 175);
+   color: #1400ca;
    font-weight: 700;
    display: block;
    line-height: 1;
 }
 .ct-blog-content .ct-blog-date strong {
    font-size: 25px;
-   color: rgb(20, 117, 175);
+   color: #1400ca;
 }
 .ct-blog-content .ct-blog-header {
    color: #000;
@@ -63,6 +64,7 @@
    padding: 10px;
    vertical-align: top;
 }
+
 .btn-news {
    color: #333;
    font-size: 14px;
@@ -72,6 +74,7 @@
 }
 .btn {
    float: right;
+   background-color: #6610f2;
 }
 .btn-news.btn-contests a {
    font-size: 24px;
@@ -80,6 +83,7 @@
 .btn-news.btn-contests a:hover {
    color: #000;
 }
+
 .news-title {
    text-align: center;
    padding-top: 30px;
@@ -87,12 +91,18 @@
    font-size: 55px;
    font-weight: bold;
 }
+h1 {
+   color: #1400ca;
+}
+
+a {
+   color: #1400ca;
+}
 
 #saved_news_container {
    width: 90%;
    margin: auto;
 }
-
 #saved_news_container > div {
    background-color: #cad4ff;
    padding-top: 5%;
@@ -102,13 +112,11 @@
    display: grid;
    grid-template-columns: 40% 60%;
 }
-
 #preview figure img {
    display: block;
    margin: auto;
    grid-column: 1;
 }
-
 #preview div {
    grid-column: 2;
    padding-left: 20px;

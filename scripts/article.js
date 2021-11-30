@@ -39,6 +39,7 @@ function displayNews() {
                            var tag = document.createElement("div");
                            var text = document.createTextNode(doc.data().text);
                            tag.appendChild(text);
+                           tag.setAttribute("class", "paragraph");
 
                            document.getElementById("content").appendChild(tag);
                         });
