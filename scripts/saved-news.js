@@ -1,87 +1,43 @@
-function insertTitle() {
+function displayCards(collection) {
    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-         news = db
-            .collection("users")
-            .doc(user.uid)
-            .collection("saved_news")
-            .doc("0001");
+         let CardTemplate = document.getElementById("CardTemplate");
+         db.collection("users/" + user.uid + "/" + collection)
+            .get()
+            .then((snap) => {
+               var i = 1;
+               snap.forEach((doc) => {
+                  //iterate thru each doc
+                  var article = db.collection("articles").doc(doc.id);
 
-         news.get().then((saved_newsDoc) => {
-            var Title = saved_newsDoc.data().title;
-            var url = saved_newsDoc.data().url;
-            console.log(Title);
-            $("#title1").text(Title);
-            $("#url1").text(url);
-         });
-         news = db
-            .collection("users")
-            .doc(user.uid)
-            .collection("saved_news")
-            .doc("0002");
+                  let newcard = CardTemplate.cloneNode(true);
 
-         news.get().then((saved_newsDoc) => {
-            var Title = saved_newsDoc.data().title;
-            var url = saved_newsDoc.data().url;
-            console.log(Title);
-            $("#title2").text(Title);
-            $("#url2").text(url);
-         });
-         news = db
-            .collection("users")
-            .doc(user.uid)
-            .collection("saved_news")
-            .doc("0003");
+                  article.get().then((doc) => {
+                     if (doc.exists) {
+                        newcard.id = "preview";
+                        newcard.querySelector(".card-title").innerHTML =
+                           doc.data().title;
+                        newcard.querySelector(".card-thumbnail").src =
+                           doc.data().thumbnail;
+                        newcard.querySelector(".card-thumbnail").style.width =
+                           "80%";
+                        newcard.querySelector(".card-href").innerHTML =
+                           "Go to article";
+                        newcard.querySelector(".card-href").href =
+                           "sample-article.html";
+                     }
+                  });
 
-         news.get().then((saved_newsDoc) => {
-            var Title = saved_newsDoc.data().title;
-            var url = saved_newsDoc.data().url;
-            console.log(Title);
-            $("#title3").text(Title);
-            $("#url3").text(url);
-         });
-         news = db
-            .collection("users")
-            .doc(user.uid)
-            .collection("saved_news")
-            .doc("0004");
+                  newcard.querySelector(".card-href").onclick = function () {
+                     localStorage.setItem("newsID", doc.id);
+                  };
 
-         news.get().then((saved_newsDoc) => {
-            var Title = saved_newsDoc.data().title;
-            var url = saved_newsDoc.data().url;
-            console.log(Title);
-            $("#title4").text(Title);
-            $("#url4").text(url);
-         });
-         news = db
-            .collection("users")
-            .doc(user.uid)
-            .collection("saved_news")
-            .doc("0005");
-
-         news.get().then((saved_newsDoc) => {
-            var Title = saved_newsDoc.data().title;
-            var url = saved_newsDoc.data().url;
-            console.log(Title);
-            $("#title5").text(Title);
-            $("#url5").text(url);
-         });
-         news = db
-            .collection("users")
-            .doc(user.uid)
-            .collection("saved_news")
-            .doc("0006");
-
-         news.get().then((saved_newsDoc) => {
-            var Title = saved_newsDoc.data().title;
-            var url = saved_newsDoc.data().url;
-            console.log(Title);
-            $("#title6").text(Title);
-            $("#url6").text(url);
-         });
-      } else {
-         // No user is signed in.
+                  document
+                     .getElementById("saved_news_container")
+                     .appendChild(newcard);
+               });
+            });
       }
    });
 }
-insertTitle();
+displayCards("saved_news");

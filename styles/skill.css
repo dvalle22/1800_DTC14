@@ -4,10 +4,9 @@ main {
 }
 
 #saved_button_container {
-   margin-top: 0px;
-   margin-bottom: 100px;
+   margin-top: 20px;
+   margin-bottom: 50px;
    width: 40%;
-   height: 3em;
 }
 
 #save_button {
@@ -25,7 +24,6 @@ h1 {
    text-align: center;
    margin-bottom: 5%;
    margin-top: 2%;
-   font-size: 2.3em;
 }
 
 img {
@@ -37,28 +35,22 @@ img {
 }
 
 p {
-   font-size: 1.6em;
    margin: 10%;
+   font-size: 1.3em;
 }
 
 #saved_skills_container {
-   font-size: 1em;
-   width: 80%;
+   width: 90%;
    margin: auto;
 }
 
-#saved_skills_container h4 {
-   font-size: 1.5em;
-}
-
 #saved_skills_container > div {
-   background-color: #a6b8ff;
+   background-color: #cad4ff;
    padding: 5%;
    margin: 5%;
 }
 
 h3 {
-   font-size: 2em;
    text-align: center;
 }
 

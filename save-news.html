@@ -48,81 +48,17 @@
    <body>
       <button id="back-button" onclick="goBack()">Back</button>
       <h2 class="news-title">Saved News</h2>
-      <br />
-
-      <div class="card">
-         <div class="card-body">
-            <h5 class="card-title">
-               <span id="title1" style="font-style: italic"></span>
-            </h5>
-            <span id="url1" style="font-size: 0.2cm"></span>
-            <br />
-            <a href="#">More Details</a>
+      <div id="CardTemplate">
+         <figure><img class="card-thumbnail" /></figure>
+         <div>
+            <h4 class="card-title"></h4>
+            <a class="card-href" href="#"></a>
          </div>
       </div>
-      <br />
+      <div id="saved_news_container"></div>
 
-      <div class="card" style="border: 18rem">
-         <div class="card-body">
-            <h5 class="card-title">
-               <span id="title2" style="font-style: italic"></span>
-            </h5>
-            <span id="url2" style="font-size: 0.2cm"></span>
-            <br />
-            <a href="#">More Details</a>
-         </div>
-      </div>
-      <br />
-
-      <div class="card" style="border: 18rem">
-         <div class="card-body">
-            <h5 class="card-title">
-               <span id="title3" style="font-style: italic"></span>
-            </h5>
-            <span id="url3" style="font-size: 0.2cm"></span>
-            <br />
-            <a href="#">More Details</a>
-         </div>
-      </div>
-      <br />
-
-      <div class="card" style="border: 18rem">
-         <div class="card-body">
-            <h5 class="card-title">
-               <span id="title4" style="font-style: italic"></span>
-            </h5>
-            <span id="url4" style="font-size: 0.2cm"></span>
-            <br />
-            <a href="#">More Details</a>
-         </div>
-      </div>
-      <br />
-
-      <div class="card" style="border: 18rem">
-         <div class="card-body">
-            <h5 class="card-title">
-               <span id="title5" style="font-style: italic"></span>
-            </h5>
-            <span id="url5" style="font-size: 0.2cm"></span>
-            <br />
-            <a href="#">More Details</a>
-         </div>
-      </div>
-      <br />
-
-      <div class="card" style="border: 18rem">
-         <div class="card-body">
-            <h5 class="card-title">
-               <span id="title6" style="font-style: italic"></span>
-            </h5>
-            <span id="url6" style="font-size: 0.2cm"></span>
-            <br />
-            <a href="#">More Details</a>
-         </div>
-      </div>
-      <br />
-
-      <script src="./scripts/my_script.js"></script>
       <script src="./scripts/saved-news.js"></script>
+      <script src="./scripts/my_script.js"></script>
+      <script src="./scripts/apply-settings.js"></script>
    </body>
 </html>

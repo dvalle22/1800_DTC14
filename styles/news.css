@@ -2,7 +2,6 @@
    text-align: center;
    padding-top: 30px;
    padding-bottom: 30px;
-   font-family: "nimbus-sans-condensed", sans-serif;
    font-size: 55px;
    font-weight: bold;
 }
@@ -40,7 +39,6 @@
 .ct-blog-content .ct-blog-date {
    border-right: 1px solid;
    display: table-cell;
-   font-family: "Lato", sans-serif;
    padding: 10px;
    text-align: center;
 }
@@ -76,7 +74,6 @@
    float: right;
 }
 .btn-news.btn-contests a {
-   font-family: "nimbus-sans-condensed", sans-serif;
    font-size: 24px;
    transition: all 0.2s ease-in-out 0s;
 }
@@ -87,7 +84,33 @@
    text-align: center;
    padding-top: 30px;
    padding-bottom: 30px;
-   font-family: "nimbus-sans-condensed", sans-serif;
    font-size: 55px;
    font-weight: bold;
+}
+
+#saved_news_container {
+   width: 90%;
+   margin: auto;
+}
+
+#saved_news_container > div {
+   background-color: #cad4ff;
+   padding-top: 5%;
+}
+
+#preview {
+   display: grid;
+   grid-template-columns: 40% 60%;
+}
+
+#preview figure img {
+   display: block;
+   margin: auto;
+   grid-column: 1;
+}
+
+#preview div {
+   grid-column: 2;
+   padding-left: 20px;
+   padding-right: 20px;
 }
