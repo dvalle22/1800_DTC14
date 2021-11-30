@@ -3,10 +3,10 @@ h1 {
 }
 
 .card-header {
-   background-color: #10009c;
+   background-color: #1400ca;
    color: white;
    padding: 20px;
-   font-weight: bold;
+   font-weight: 500;
 }
 
 .card-body {

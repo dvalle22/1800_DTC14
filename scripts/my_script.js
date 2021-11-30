@@ -69,7 +69,9 @@ function writeURL() {
          ),
       })
       .then(() => {
-         console.log("URL successfully written!");
+         console.log(
+            "Current URL successfully written and stored in FireStore!"
+         );
       })
       .catch((error) => {
          console.error("Error writing URL: ", error);
@@ -78,8 +80,6 @@ function writeURL() {
    //Only allows 5 URLs to be saved
    currentUser.get().then((doc) => {
       if (doc.exists) {
-         console.log("Document data:", doc.data());
-
          let vistedURLs = doc.data().visited;
 
          if (vistedURLs.length > 5) {

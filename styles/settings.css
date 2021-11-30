@@ -23,12 +23,12 @@ h1 {
    margin-top: 2%;
    height: 3em;
    border-radius: 5%;
-   background-color: rgb(37, 150, 52);
+   background-color: rgb(35, 179, 54);
    text-align: center;
    color: white;
 }
 #fontsize_container option {
-   background-color: rgb(65, 184, 95);
+   background-color: rgb(35, 179, 54);
 }
 
 #savebutton_container {
@@ -37,5 +37,6 @@ h1 {
 
 #savebutton_container button {
    height: 3em;
+   background-color: #6610f2;
    font-size: 1em;
 }
