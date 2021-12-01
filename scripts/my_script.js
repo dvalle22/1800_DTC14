@@ -18,6 +18,19 @@ let navbar_setter = function () {
 document.body.onload = navbar_setter;
 
 /*********************************************/
+/* Toggle between showing and hiding the navigation menu links
+when the user clicks on the hamburger menu / bar icon */
+/*********************************************/
+function myFunction() {
+   var x = document.getElementById("myLinks");
+   if (x.style.display === "block") {
+      x.style.display = "none";
+   } else {
+      x.style.display = "block";
+   }
+}
+
+/*********************************************/
 /* Declare global variable currentUser */
 /*********************************************/
 var currentUser;
@@ -31,8 +44,7 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 /*********************************************/
-/* When the Save button is clicked, send article's
-information to FireStore. */
+/* When the Save button is clicked, send article's newsID to FireStore. */
 /*********************************************/
 function saveNews(newsID) {
    var currentArticle = db.collection("articles").doc(newsID);
@@ -54,7 +66,7 @@ function saveNews(newsID) {
 
 /*********************************************/
 /* Each time user visits a new page, add that page URL
-to user navigate collection */
+to user navigate collection "visited" */
 /*********************************************/
 function writeURL() {
    currentUser
@@ -99,12 +111,16 @@ function goBack() {
          if (doc.exists) {
             let vistedURLs = doc.data().visited;
             let minimum_page = 2;
+
             if (vistedURLs.length >= minimum_page) {
+               //if user can go back
                console.log("Return to ", doc.data());
 
                let last = vistedURLs[vistedURLs.length - 2];
                window.location.href = last;
 
+               //remove the URL from "visited" to avoid infinite loop
+               //(e.g. from the 5th page to 4th then from 4th back to 5th -> infinite back and forth)
                currentUser
                   .update({
                      visited: firebase.firestore.FieldValue.arrayRemove(
@@ -125,17 +141,4 @@ function goBack() {
       .catch((error) => {
          console.log("Error getting document:", error);
       });
-}
-
-/*********************************************/
-/* Toggle between showing and hiding the navigation menu links
-when the user clicks on the hamburger menu / bar icon */
-/*********************************************/
-function myFunction() {
-   var x = document.getElementById("myLinks");
-   if (x.style.display === "block") {
-      x.style.display = "none";
-   } else {
-      x.style.display = "block";
-   }
 }

@@ -1,10 +1,19 @@
+/*********************************************/
+/* When the Save button is clicked,
+send the skill's information to FireStore. */
+/*********************************************/
 save_skill = function () {
+   //change button's display to notify that the changes have been "Saved"
    let button_html_saved = "SAVED &#10003";
    let button_html_unsaved = "Save Skill";
 
    if ($("#save_button_text").html() == button_html_unsaved) {
       $("#save_button_text").html(button_html_saved);
+
+      //get the skill's information
       var currentSkill = db.collection("skills").doc("sample_skill");
+
+      //send it to the FireStore
       currentSkill
          .get()
          .then((doc) => {

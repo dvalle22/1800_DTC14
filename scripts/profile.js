@@ -1,27 +1,7 @@
-function insertName() {
-   firebase.auth().onAuthStateChanged((user) => {
-      // Check if user is signed in:
-      if (user) {
-         //currentUser = db.collection("users").doc(user.uid);
-         //currentUser is a global varible, declared in my_script.js
-
-         //go to the correct user document by referencing to the user uid
-         //get the document for current user.
-         currentUser.get().then((userDoc) => {
-            var user_Name = userDoc.data().name;
-            console.log(user_Name);
-            //method #1:  insert with html only
-            document.getElementById("name-goes-here").innerText = user_Name; //using javascript
-            //method #2:  insert using jquery
-            //$("#name-goes-here").text(user_Name);                         //using jquery
-         });
-      } else {
-         // No user is signed in.
-      }
-   });
-}
-insertName();
-
+/*********************************************/
+/* When the page is loaded, populate user's information
+(if any) to the html */
+/*********************************************/
 function populateInfo() {
    firebase.auth().onAuthStateChanged((user) => {
       // Check if user is signed in:
@@ -30,7 +10,6 @@ function populateInfo() {
          currentUser.get().then((userDoc) => {
             //get the data fields of the user
             var username = userDoc.data().name;
-            // console.log(userName);
             var useremail = userDoc.data().email;
             var userphone = userDoc.data().phone;
             var f_name = userDoc.data().first_name;
@@ -44,9 +23,10 @@ function populateInfo() {
             var guardian_phone = userDoc.data().guardian_phone;
             var about_me = userDoc.data().about_me;
 
-            //if the data fields are not empty, then write them in to the form.
+            //if the data fields are not empty, then write them into the form.
             if (username != null) {
                document.getElementById("username").value = username;
+               document.getElementById("name-goes-here").innerText = username;
             }
             if (useremail != null) {
                document.getElementById("email").value = useremail;
@@ -91,15 +71,22 @@ function populateInfo() {
       }
    });
 }
-
-//call the function to run it
 populateInfo();
 
+/*********************************************/
+/* When the Edit button is clicked,
+allow user to edit the form */
+/*********************************************/
 function editUserInfo() {
    document.getElementById("personalInfoFields").disabled = false;
 }
 
+/*********************************************/
+/* When the Save button is clicked,
+send user's changes to the FireStore */
+/*********************************************/
 function saveUserInfo() {
+   //get user's changes
    username = document.getElementById("username").value;
    email = document.getElementById("email").value;
    phone = document.getElementById("phone").value;
@@ -117,7 +104,7 @@ function saveUserInfo() {
 
    about_me = document.getElementById("about-me").value;
 
-   // console.log("values are:", name, school, city)
+   //update the changes
    currentUser.update({
       first_name: f_name,
       last_name: l_name,
@@ -133,5 +120,7 @@ function saveUserInfo() {
       guardian_phone: guardian_phone,
       about_me: about_me,
    });
+
+   //disable the form again
    document.getElementById("personalInfoFields").disabled = true;
 }

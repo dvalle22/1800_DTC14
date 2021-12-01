@@ -5,6 +5,7 @@ var uiConfig = {
       signInSuccessWithAuthResult: function (authResult, redirectUrl) {
          // User successfully signed in.
          var user = authResult.user;
+
          if (authResult.additionalUserInfo.isNewUser) {
             db.collection("users")
                .doc(user.uid)
