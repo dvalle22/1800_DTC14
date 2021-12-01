@@ -97,6 +97,18 @@ Files are listed in the order they appear in the navbar.
     /profile.css             # style for profile.html
     /faq.css                 # style for faq.html
     /contact-us.css          # style for contact-us.html
+
+Firebase hosting files:
+
+├── .firebase
+	/hosting..cache
+├── .firebaserc
+├── 404.html
+├── firebase.json
+├── firestore.indexes.json
+├── firestore.rules
+├── storage.rules
+
 ```
 
 ## Detailed Work
